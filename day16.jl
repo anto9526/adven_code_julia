@@ -8,12 +8,7 @@ tick_lines = lines[26:end]
 range_bins = []
 valid = Set()
 fields = Dict()
-#=
-zone: 41-567 or 578-959
 
-your ticket:
-149,73,71,107,113,151,223,67,163,53,173,167,109,79,191,233,83,227,229,157
-=#
 for (i,line) in enumerate(range_lines)
     field,tmp=split(line,":")
     fields[i] = field
@@ -23,8 +18,6 @@ for (i,line) in enumerate(range_lines)
         s,e = split(t,"-")
         append!(bin,[j for j in parse(Int,s):parse(Int,e)]) 
     end
-    #println(bin)
-    #println("Is 583 in the bin? :$(583 in bin)")
     union!(valid,bin)
     push!(range_bins,bin)
 end
