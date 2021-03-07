@@ -120,10 +120,9 @@ for (i,line) in enumerate(lines)
     end
 end
 
-
 for i in 1:6
     cells = affected_cells(mat)
-    mat = nextlife(mat, cells)
+    @time mat = nextlife(mat, cells)
 end
 println("Question 1 living cells are $(length(mat))")
 
@@ -140,6 +139,6 @@ end
 
 for i in 1:6
     cells = affected_cells2(mat)
-    mat = nextlife2(mat, cells)
+   @time mat = nextlife2(mat, cells)
 end
 println("Question 2 living cells are $(length(mat))")
